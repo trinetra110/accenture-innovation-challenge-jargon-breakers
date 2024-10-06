@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Prediction Results and Insights</title>
+</head>
+<body>
+    <h1>Results for Target Column: {{ target_column }}</h1>
+    <h2>Model Performance</h2>
+    <p>{{ score_text }}</p>
+    <h2>Generated Insights</h2>
+    <p>{{ insights }}</p>
+    <br>
+    <a href="{{ url_for('index') }}">Upload Another Dataset</a>
+</body>
+</html>

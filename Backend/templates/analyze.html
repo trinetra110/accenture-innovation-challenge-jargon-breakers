@@ -1,0 +1,38 @@
+<!doctype html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Select Target Column</title>
+    <style>
+        .dataframe {
+            border-collapse: collapse;
+            width: 100%;
+        }
+        .dataframe th, .dataframe td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+        .dataframe th {
+            padding-top: 12px;
+            padding-bottom: 12px;
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h1>Dataset Preview</h1>
+    {% for table in tables %}
+        {{ table|safe }}
+    {% endfor %}
+    <h2>Select Target Column for Prediction</h2>
+    <form action="{{ url_for('predict') }}" method="post">
+        <label for="target_column">Select Target Column:</label>
+        <select name="target_column" id="target_column">
+            {% for column in columns %}
+                <option value="{{ column }}">{{ column }}</option>
+            {% endfor %}
+        </select><br><br>
+        <input type="submit" value="Predict and Generate Insights">
+    </form>
+</body>
+</html>
